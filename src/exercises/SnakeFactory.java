@@ -6,14 +6,26 @@ import java.util.Random;
 
 public class SnakeFactory extends Snake {
 
+	private static List<Snake> snakes = new ArrayList<Snake>();
+
 	public SnakeFactory(boolean venomous) {
 		super(venomous);
+		for (int i = 0; i < this.snakes.size(); i++) {
+			this.snakes.add(new Snake(venomous));
+		}
+	}
+
+	public static List<Snake> getSnakes() {
+		return snakes;
+	}
+
+	public void setSnakes(List<Snake> snakes) {
+		this.snakes = snakes;
 	}
 
 	public static List<Snake> createListOfSnakesWithThatAreRandomlyVenomous() {
-		List<Snake> snakes = new ArrayList<Snake>();
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 20; i++) {
 			boolean venomous = new Random().nextBoolean();
 			System.out.println(venomous);
 			snakes.add(new Snake(venomous));
