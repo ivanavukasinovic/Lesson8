@@ -6,16 +6,15 @@ import java.util.List;
 public class Plane {
 
 	public void addSnakes(List<Snake> snakes) {
-		// ?
+		SnakeFactory.getSnakes();
 	}
 
 	public int getNumberOfVenomousSnakes() {
 
-		List<Snake> snakes = SnakeFactory.createListOfSnakesWithThatAreRandomlyVenomous();
 		List<Snake> venomousSnake = new ArrayList<Snake>();
 		List<Snake> unvenomousSnake = new ArrayList<Snake>();
 
-		for (Snake snake : snakes) {
+		for (Snake snake : SnakeFactory.getSnakes()) {
 			if (snake.isVenomous()) {
 				venomousSnake.add(snake);
 			} else {
